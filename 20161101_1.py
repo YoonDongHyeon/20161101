@@ -2,6 +2,7 @@ machine_part = [
     [1, 0, 1, 0, 0, 0, 0],
     [1, 1, 1, 1, 0, 0, 0],
     [1, 1, 0, 0, 0, 0, 0],
+    [0, 0, 0, 1, 0, 0, 0],
     [0, 0, 0, 0, 1, 1, 1],
     [0, 0, 0, 0, 1, 1, 0],
     [0, 0, 0, 0, 0, 1, 1]
@@ -27,7 +28,7 @@ def col_op(ma, a, b):
 
 def row_op(ma, a, b):
     temp = ma[1][a]
-    ma[1][a] = ma[0][b]
+    ma[1][a] = ma[1][b]
     ma[1][b] = temp
 
     r = [0, 1, 2, 3, 4, 5, 6]
@@ -46,13 +47,13 @@ def row_op(ma, a, b):
     return new_ma
 def my_print(ma):
     for i in range(7):
-        print('\t{}'.format(ma[0][i])),
-    print('')
+        print('\t{}'.format(ma[0][i]),end=''),
+    print(' ')
     for i in range(7):
         print(ma[1][i]),
         for j in range(7):
-            print('\t{}'.format(ma[2][i][j])),
-        print('')
+            print('\t{}'.format(ma[2][i][j]),end=''),
+        print(' ')
     return True
 def col_cal(ma):
     col_sum = []
@@ -97,7 +98,7 @@ def gt(ma):
         elif axis == 1:
             rsum = row_cal(re)
             for i in range(7):
-                for i in range(i+1,7):
+                for j in range(i+1,7):
                     if rsum[i] > rsum[j]:
                         temp = rsum[i]
                         rsum[i] = rsum[j]
@@ -112,3 +113,4 @@ def gt(ma):
         else:
             return  re
 celled = gt(machine_part_ma)
+my_print(celled)
