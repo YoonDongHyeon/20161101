@@ -50,7 +50,7 @@ def my_print(ma):
         print('\t{}'.format(ma[0][i]),end=''),
     print(' ')
     for i in range(7):
-        print(ma[1][i]),
+        print(ma[1][i],end=""),
         for j in range(7):
             print('\t{}'.format(ma[2][i][j]),end=''),
         print(' ')
